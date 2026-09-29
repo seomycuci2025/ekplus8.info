@@ -1,0 +1,7 @@
+function switchTpl(tplName){const sections=document.querySelectorAll('section[data-tpl]');const buttons=document.querySelectorAll('.tpl-switcher-btn');buttons.forEach(btn=>btn.classList.remove('active'));event.target.classList.add('active');sections.forEach(sec=>{if(tplName==='all'){sec.style.display='block'}else{if(sec.getAttribute('data-tpl')===tplName){sec.style.display='block'}else{sec.style.display='none'}}})}
+function toggleDrawer(){const overlay=document.getElementById('drawerOverlay');const drawer=document.getElementById('mobileDrawer');overlay.classList.toggle('active');drawer.classList.toggle('active')}
+function toggleSubmenu(btn){const isExpanded=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',!isExpanded);const submenu=btn.parentElement.nextElementSibling;if(submenu){submenu.classList.toggle('open',!isExpanded)}}
+function toggleFaq(btn){const item=btn.parentElement;item.classList.toggle('active');const icon=btn.querySelector('.faq-icon');if(icon){icon.textContent=item.classList.contains('active')?'-':'+'}}
+function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+window.addEventListener('scroll',function(){const btn=document.getElementById('backToTopBtn');if(window.scrollY>300){btn.classList.add('visible')}else{btn.classList.remove('visible')}})
+;
